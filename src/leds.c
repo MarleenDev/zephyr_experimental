@@ -34,7 +34,7 @@ bool led_toggle(const struct gpio_dt_spec* led)
 
 bool led_on(const struct gpio_dt_spec* led)
 {
-    int ret = gpio_pin_set_dt(led, GPIO_OUTPUT_ACTIVE);
+    int ret = gpio_pin_set_dt(led, 1);
     if (ret < 0) {
         printf("Error: gpio_pin_set_dt returned %i [led_on]\n]", ret);
         return false;
@@ -44,7 +44,7 @@ bool led_on(const struct gpio_dt_spec* led)
 
 bool led_off(const struct gpio_dt_spec* led)
 {
-    int ret = gpio_pin_set_dt(led, GPIO_OUTPUT_INACTIVE);
+    int ret = gpio_pin_set_dt(led, 0);
     if (ret < 0) {
         printf("Error: gpio_pin_set_dt returned %i [led_off]\n", ret);
         return false;
